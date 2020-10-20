@@ -1,2 +1,37 @@
-<h1>Users#edit</h1>
-<p>Find me in app/views/users/edit.html.erb</p>
+<div class="text-left ml-5 mb-4">
+  <h1>プロフィール編集</h1>
+</div>
+
+<div class="container">
+  <%= form_with(model: @user,local: true)do |f| %>
+      <div class="row">
+        <label class="col-4">プロフィール画像</label>
+        <div class="col-8">
+          <%= f.file_field :icon %>
+          <br>
+          <p><%= f.check_box :remove_icon %>画像を削除する</p>
+        </div>
+      </div>
+      <div class="row">
+        <label class="col-4">ヘッダー画像</label>
+        <div class="col-8">
+          <%= f.file_field :header %>
+          <br>
+          <p><%= f.check_box :remove_header %>画像を削除する</p>
+        </div>
+      </div>
+      <div class="row">
+        <label class="col-4">ユーザ名</label>
+        <div class="col-8"><%= f.text_field :name %></div>
+      </div>
+      <div class="row">
+        <label class="col-4">プロフィール</label>
+        <div class="col-8"><%= f.text_field :profile %></div>
+      </div>
+    <div class="text-center">
+      <%= f.submit 'プロフィール更新', class: 'btn btn-dark' %>
+    </div>
+  <% end %>
+</div>
+  
+

@@ -1,0 +1,21 @@
+<p><%= image_tag @user.thumb.icon_url if @user.icon? %></p>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-3">
+      <h1>プロフィール</h1>
+      <br>
+      <div class ="border">
+        <%= @user.profile %>
+      </div>
+    </div>
+    <div class="col-sm-9 text-center ">
+      <% if @user == current_user %>
+        <button type="button" class="btn btn-secondary"><%= link_to 'プロフィール編集', edit_user_path %></button>
+      <% end %>
+      <button type="button" class="btn btn-secondary">お気に入り</button>    
+      <button type="button" class="btn btn-secondary">マイレシピ</button>
+      <button type="button" class="btn btn-secondary">レシピ投稿</button>  
+    </div>
+  </div>
+</div>
